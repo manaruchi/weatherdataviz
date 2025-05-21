@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('RobotoFlex.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'MyCustomFont', Arial, sans-serif;
+}
+
+.info.legend {
+    background: rgba(0, 0, 0, 0.4);  /* Slightly more transparent */
+    padding: 6px 8px;                 /* Reduced padding */
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    color: #fff;
+    font: 12px Arial, sans-serif;
+    line-height: 18px;
+    width: auto;
+    margin: 0;                       /* Remove default margins */
+  }
+  
+  .horizontal-legend {
+    display: flex;
+    align-items: center;
+    gap: 4px;                       /* Reduced gap between boxes */
+  }
+  
+  .legend-title {
+    margin-right: 8px;              /* Reduced margin */
+    font-weight: bold;
+    white-space: nowrap;
+    user-select: none;
+  }
+  
+  .legend-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;                   /* Slightly narrower */
+    height: 24px;                  /* Slightly smaller height */
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    user-select: none;
+    color: black;
+    text-shadow:
+      -1px -1px 0 #fff,
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff;
+  }
+  
+  /* To force extreme bottom right corner */
+  .leaflet-bottom.leaflet-right {
+    bottom: 5px !important;
+    right: 5px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  
