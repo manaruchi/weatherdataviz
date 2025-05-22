@@ -1,14 +1,23 @@
 // Initialize Leaflet map
 const map = L.map('map', {
-    attributionControl: false
+    attributionControl: false,
+    minZoom: 5,
+    maxZoom: 10, 
+    maxBounds: [
+      [5, 45],
+      [48, 110]
+    ],
+    maxBoundsViscosity: 1.0
   }).setView([25, 80], 5);
 
 // Basemap - Using a Darker Version of CartoDB
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('./tiles/{z}/{x}/{y}{r}.png', {
   attribution: 'CartoDark',
-  subdomains: 'abcd',
-  maxZoom: 19
+  maxZoom: 10
   }).addTo(map);
+
+// Add Shapefile
+
 
 // Surface Wind JSON Data
 fetch('../data/wind_velocity.json')
