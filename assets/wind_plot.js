@@ -1,26 +1,10 @@
-// Initialize Leaflet map
-const map = L.map('map', {
-    attributionControl: false,
-    minZoom: 5,
-    maxZoom: 10, 
-    maxBounds: [
-      [5, 45],
-      [48, 110]
-    ],
-    maxBoundsViscosity: 1.0
-  }).setView([25, 80], 5);
 
-// Basemap - Using a Darker Version of CartoDB
-L.tileLayer('./tiles/{z}/{x}/{y}{r}.png', {
-  attribution: 'CartoDark',
-  maxZoom: 10
-  }).addTo(map);
 
 // Add Shapefile
 
 
 // Surface Wind JSON Data
-fetch('../data/wind_velocity.json')
+fetch('../data/wind_data/wind_2025-02-19_12.json')
   .then(res => res.json())
   .then(json => {
     const velocityLayer = L.velocityLayer({
@@ -30,10 +14,11 @@ fetch('../data/wind_velocity.json')
         position: 'bottomleft',
         emptyString: 'No wind data',
         angleConvention: 'bearingCW',
-        speedUnit: 'kt'
+        speedUnit: 'KT'
       },
       data: json,
-      maxVelocity: 100
+      maxVelocity: 100,
+      particleColor: 'white',
     });
 
     velocityLayer.addTo(map);

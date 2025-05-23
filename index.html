@@ -24,13 +24,19 @@
 
 <div id="map"></div>
 
+<div id="time-slider-container">
+  <label for="time-slider">Time: <span id="time-label">--</span></label>
+  <br>
+  <input type="range" id="time-slider" min="0" max="72" value="0" step="1">
+</div>
+<div id="slider-tooltip" style="position: absolute; pointer-events: none; background: rgba(255,255,255,0.9); color: black; padding: 2px 6px; border-radius: 4px; font-size: 12px; display: none;"></div>
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <!-- Leaflet Velocity Plugin -->
 <script src="https://unpkg.com/leaflet-velocity/dist/leaflet-velocity.min.js"></script>
-
+<script src="assets/main-control.js"></script>
 <script src="assets/wind_plot.js"></script>
 
 </body>

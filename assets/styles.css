@@ -60,4 +60,20 @@ body {
     padding: 0 !important;
   }
   
+  #time-slider-container{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+  }
+
+  #time-slider{
+    width: 300px;
+    margin-top: 10px;
+  }
   
