@@ -4,7 +4,7 @@
 
 
 // Surface Wind JSON Data
-fetch('../data/wind_data/wind_2025-02-19_02.json')
+fetch('../data/wind_data/wind_test.json')
   .then(res => res.json())
   .then(json => {
     const velocityLayer = L.velocityLayer({

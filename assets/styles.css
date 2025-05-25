@@ -62,9 +62,9 @@ body {
   
   #time-slider-container{
     position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 10px;
+    left: 10px;
+
     z-index: 1000;
     background: rgba(0,0,0,0.4);
     padding: 10px;
@@ -89,7 +89,7 @@ body {
   #level-slider-container{
     position: absolute;
     bottom: 45px;
-    right: 5px;
+    right: 20px;
     z-index: 1000;
     background: rgba(0,0,0,0.4);
     padding: 10px;

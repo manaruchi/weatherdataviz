@@ -127,8 +127,8 @@ levelSlider.addEventListener("input", (e) => {
 
   const rect = levelSlider.getBoundingClientRect();
   levelTooltip.textContent = levelLabels[index];
-  levelTooltip.style.left = `${rect.left + (rect.width * (index / levelSlider.max))}px`;
-  levelTooltip.style.top = `${rect.top - 30}px`;
+  levelTooltip.style.left = `${rect.left + (rect.width * (index / levelSlider.max))-20}px`;
+  levelTooltip.style.top = `${rect.top - 10}px`;
   levelTooltip.style.display = "block";
 
   // TODO: Load wind data for this level index
