@@ -55,10 +55,24 @@ const tooltip = document.getElementById("slider-tooltip");
 const container = document.getElementById("time-slider-container");
 
 // Update this with your actual time labels per step
-const timeLabels = [
-  "2025-05-23 00Z", "2025-05-23 03Z", "2025-05-23 06Z", "2025-05-23 09Z",
-  // ...
-];
+
+const startDate = new Date("2025-02-19T00:00:00Z");
+
+var timeLabels = [];
+
+for (let i = 0; i < 72; i++) {
+    const time = new Date(startDate.getTime() + i * 60 * 60 * 1000); // Add i hours
+    const utcHours = String(time.getUTCHours()).padStart(2, '0');
+    const utcDay = time.getUTCDate();
+    const utcMonth = time.getUTCMonth() + 1;
+    const utcYear = time.getUTCFullYear();
+
+    // Format: "YYYY-MM-DD HHZ"
+    const timeStr = `${utcYear}-${String(utcMonth).padStart(2, '0')}-${String(utcDay).padStart(2, '0')} ${utcHours}Z`;
+    timeLabels.push(timeStr);
+}
+
+console.log(timeLabels)
 
 // Show time on hover or drag
 slider.addEventListener("mousemove", (e) => {
@@ -76,4 +90,49 @@ slider.addEventListener("mousemove", (e) => {
 slider.addEventListener("mouseleave", () => {
   tooltip.style.display = 'none';
 });
+// ===============================================================================================
+
+
+
+// Vertical Height Slider Control ================================================================
+const levelSlider = document.getElementById("level-slider");
+const levelLabel = document.getElementById("level-label");
+const levelTooltip = document.getElementById("level-slider-tooltip");
+
+const levelLabels = [
+  "Surface", "925 hPa", "850 hPa", "700 hPa", "600 hPa",
+  "500 hPa", "300 hPa", "200 hPa", "100 hPa", "50 hPa"
+];
+
+// Show tooltip on hover or drag
+levelSlider.addEventListener("mousemove", (e) => {
+  const rect = levelSlider.getBoundingClientRect();
+  const percent = (e.clientX - rect.left) / rect.width;
+  const index = Math.round(percent * (levelSlider.max - levelSlider.min));
+  const label = levelLabels[index] || "--";
+
+  levelTooltip.textContent = label;
+  levelTooltip.style.left = `${e.clientX}px`;
+  levelTooltip.style.top = `${rect.top - 30}px`;
+  levelTooltip.style.display = "block";
+});
+
+levelSlider.addEventListener("mouseleave", () => {
+  levelTooltip.style.display = "none";
+});
+
+levelSlider.addEventListener("input", (e) => {
+  const index = parseInt(e.target.value);
+  levelLabel.textContent = levelLabels[index];
+
+  const rect = levelSlider.getBoundingClientRect();
+  levelTooltip.textContent = levelLabels[index];
+  levelTooltip.style.left = `${rect.left + (rect.width * (index / levelSlider.max))}px`;
+  levelTooltip.style.top = `${rect.top - 30}px`;
+  levelTooltip.style.display = "block";
+
+  // TODO: Load wind data for this level index
+});
+
+
 // ===============================================================================================

@@ -4,7 +4,7 @@
 
 
 // Surface Wind JSON Data
-fetch('../data/wind_data/wind_2025-02-19_12.json')
+fetch('../data/wind_data/wind_2025-02-19_02.json')
   .then(res => res.json())
   .then(json => {
     const velocityLayer = L.velocityLayer({
@@ -18,7 +18,7 @@ fetch('../data/wind_data/wind_2025-02-19_12.json')
       },
       data: json,
       maxVelocity: 100,
-      particleColor: 'white',
+      colorScale: ['white'],
     });
 
     velocityLayer.addTo(map);

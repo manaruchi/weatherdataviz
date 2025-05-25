@@ -23,13 +23,26 @@
 <body>
 
 <div id="map"></div>
-
+<!-- Time Slider -->
 <div id="time-slider-container">
   <label for="time-slider">Time: <span id="time-label">--</span></label>
   <br>
   <input type="range" id="time-slider" min="0" max="72" value="0" step="1">
+
 </div>
-<div id="slider-tooltip" style="position: absolute; pointer-events: none; background: rgba(255,255,255,0.9); color: black; padding: 2px 6px; border-radius: 4px; font-size: 12px; display: none;"></div>
+</div>
+<div id="slider-tooltip"></div>
+
+<!-- Vetical Height Slider -->
+<div id="level-slider-container">
+  <label for="level-slider">Level: <span id="level-label">Surface</span></label><br>
+  <input type="range" id="level-slider" min="0" max="9" value="0" step="1" style="width: 300px;">
+</div>
+
+
+<div id="level-slider-tooltip"></div>
+
+
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
