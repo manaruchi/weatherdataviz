@@ -1,31 +1,55 @@
 
+let velocityLayer = null;
 
-// Add Shapefile
+function loadWindData(timestampStr) {
+  const filePath = `./data/wind_data/wind_Surface_${timestampStr}.json`; // modify as needed
 
+  // Show a loading spinner
+  document.getElementById("loading-spinner").style.display = "block";
 
-// Surface Wind JSON Data
-fetch('../data/wind_data/wind_test.json')
-  .then(res => res.json())
-  .then(json => {
-    const velocityLayer = L.velocityLayer({
-      displayValues: true,
-      displayOptions: {
-        velocityType: 'Global Wind',
-        position: 'bottomleft',
-        emptyString: 'No wind data',
-        angleConvention: 'bearingCW',
-        speedUnit: 'KT'
-      },
-      data: json,
-      maxVelocity: 100,
-      colorScale: ['white'],
+  fetch(filePath)
+    .then((response) => {
+      if (!response.ok) throw new Error("Failed to load wind data");
+      return response.json();
+    })
+    .then((windData) => {
+      
+      // Update the Time Label over the Time Slider
+      const timeLabelOverSlider = document.getElementById("time-label");
+      timeLabelOverSlider.innerText = windData[0].header.refTime;
+      // Remove existing layer
+      if (velocityLayer) {
+        map.removeLayer(velocityLayer);
+      }
+
+      // Create new velocity layer
+      velocityLayer = L.velocityLayer({
+        displayValues: true,
+        displayOptions: {
+          velocityType: "Wind",
+          position: "bottomleft",
+          emptyString: "No wind data",
+          speedUnit: "KT"
+        },
+        data: windData,
+        maxVelocity: 100,
+        velocityScale: 0.005,
+        colorScale: ['white'],
+        lineWidth: 1,
+        frameRate: 20
+      });
+
+      velocityLayer.addTo(map);
+    })
+    .catch((err) => {
+      console.error("Error loading wind data:", err);
+    })
+     .finally(() => {
+      // Hide spinner when done
+      document.getElementById("loading-spinner").style.display = "none";
     });
+}
 
-    velocityLayer.addTo(map);
-  })
-  .catch(err => {
-    console.error("Failed to load wind data:", err);
-  });
 
   // Wind Legend
   const legend = L.control({ position: "bottomright" });

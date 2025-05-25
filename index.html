@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wind Map</title>
+  <title>Weather Data Viz</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -42,7 +42,8 @@
 
 <div id="level-slider-tooltip"></div>
 
-
+<!-- Loader Animation -->
+<span class="loader" id="loading-spinner"></span>
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -52,5 +53,9 @@
 <script src="assets/main-control.js"></script>
 <script src="assets/wind_plot.js"></script>
 
+<script>
+  // Load the Wind Data at startup
+loadWindData(0);
+</script>
 </body>
 </html>

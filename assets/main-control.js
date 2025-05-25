@@ -136,3 +136,8 @@ levelSlider.addEventListener("input", (e) => {
 
 
 // ===============================================================================================
+// Code to get winds at given values
+document.getElementById("time-slider").addEventListener("input", function (e) {
+  loadWindData(parseInt(e.target.value));
+});
+
