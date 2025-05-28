@@ -12,10 +12,30 @@ const map = L.map('map', {
   }).setView([25, 80], 5);
 
 
+
+
+// Image bounds from your WRF-generated image
+const imageBounds = [
+  [-3.236724853515625, 44.73521041870117],
+  [43.468475341796875, 111.2647857666015]
+];
+
+// Add image overlay
+const windSpeedOverlay = L.imageOverlay('./data/wind_speed/test.png', imageBounds, {
+  opacity: 0.7,
+}).addTo(map);
+
+
+  // Basemap - Using a Darker Version of CartoDB
+L.tileLayer('./tiles/{z}/{x}/{y}{r}.png', {
+  attribution: 'CartoDark',
+  maxZoom: 10,
+  }).addTo(map);
+
+
+
+
 // India and World Shapefiles
-
-
-
 // Load World GeoJSON
 fetch('./data/world.geojson')
   .then(response => response.json())
@@ -36,19 +56,11 @@ fetch('./data/india_proj.geojson')
     const indiaLayer = L.geoJSON(data, {
       style: {
         color: 'grey',
-        weight: 1,
+        weight: 1.5,
         fillOpacity: 0
       },
     }).addTo(map);
   });
-
-  // Basemap - Using a Darker Version of CartoDB
-L.tileLayer('./tiles/{z}/{x}/{y}{r}.png', {
-  attribution: 'CartoDark',
-  maxZoom: 10
-  }).addTo(map);
-
-
 // ==================== TIME SLIDER ==============================================
 const slider = document.getElementById("time-slider");
 const tooltip = document.getElementById("slider-tooltip");
