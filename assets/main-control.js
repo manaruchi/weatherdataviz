@@ -137,7 +137,21 @@ levelSlider.addEventListener("input", (e) => {
 
 // ===============================================================================================
 // Code to get winds at given values
+const levVal = document.getElementById("level-slider");
+const tVal = document.getElementById("time-slider");
+const toggleInput = document.getElementById("wind-toggle");
+
+
+
 document.getElementById("time-slider").addEventListener("input", function (e) {
-  loadWindData(parseInt(e.target.value));
+  loadWindData();
 });
 
+document.getElementById("level-slider").addEventListener("input", function (e) {
+  loadWindData();
+});
+
+// Wind Toggle at Layers Container
+toggleInput.addEventListener("change", function () {
+  loadWindData();
+});

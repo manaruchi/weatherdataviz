@@ -40,6 +40,21 @@
 </div>
 
 
+<!-- Container to Hold Layers -->
+<div id="layers-container">
+
+  <!-- Wind Toggle Container -->
+  <div class="switch-container">
+    <label class="switch">
+      <input type="checkbox" id="wind-toggle" checked />
+      <span class="slider"></span>
+    </label>
+    <span class="switch-label">Winds</span>
+  </div>
+</div>
+
+
+
 <div id="level-slider-tooltip"></div>
 
 <!-- Loader Animation -->
@@ -54,8 +69,8 @@
 <script src="assets/wind_plot.js"></script>
 
 <script>
-  // Load the Wind Data at startup
-loadWindData(0);
+// Load the Wind Data at startup
+loadWindData();
 </script>
 </body>
 </html>
