@@ -1,5 +1,35 @@
 let currentOverlay = null;
 
+// Define Colorscales
+const temp_rdbu_r = [
+        "#053061",  // Dark Blue
+        "#2166ac",  // Blue
+        "#4393c3",  // Medium Blue
+        "#92c5de",  // Sky Blue
+        "#d1e5f0",  // Light Blue
+        "#ffffff",  // White (neutral/midpoint)
+        "#fddbc7",  // Light Pink
+        "#f4a582",  // Peach
+        "#d6604d",  // Light Red
+        "#b2182b",  // Red
+        "#67001f"   // Dark Red
+      ]
+
+const temp_blues = [
+        "#021025", // Near-black blue
+        "#041f4a", // Very dark blue
+        "#08306b", // Dark navy blue
+        "#08519c", // Strong blue
+        "#2171b5", // Deep sky blue
+        "#4292c6", // Medium blue
+        "#6baed6", // Medium light blue
+        "#9ecae1", // Sky blue
+        "#c6dbef", // Soft blue
+        "#deebf7", // Pale blue
+        "#f7fbff"  // Very light blue (almost white)
+      ]
+
+
 // Image bounds from your WRF-generated image
 const imageBounds = [
   [-3.236724853515625, 44.73521041870117],
@@ -68,25 +98,15 @@ function updateOverlay(dataLayerName) {
       title: 'Wind Speed (KT)'
     });
   } else if(dataLayerName === "temperature"){
-    createDynamicLegend({
-      min: -10,
-      max: 50,
-      steps: 8,
-      title: 'Temperature (°C)',
-      colorScale: [
-        "#053061",  // Dark Blue
-        "#2166ac",  // Blue
-        "#4393c3",  // Medium Blue
-        "#92c5de",  // Sky Blue
-        "#d1e5f0",  // Light Blue
-        "#ffffff",  // White (neutral/midpoint)
-        "#fddbc7",  // Light Pink
-        "#f4a582",  // Peach
-        "#d6604d",  // Light Red
-        "#b2182b",  // Red
-        "#67001f"   // Dark Red
-      ],
-    });
+    const temp_vmin_values = [-10,-10,-20,-30,-40,-40,-60,-70,-80,-80]
+    const temp_vmax_values = [50,40,30,20,10,10,0,-10,-30,-40]
+    const lev_val = parseInt(levelStr)
+    if(lev_val < 3){
+      createDynamicLegend({ min: temp_vmin_values[lev_val], max: temp_vmax_values[lev_val], steps: 8, title: 'Temperature (°C)', colorScale: temp_rdbu_r });
+    } else {
+      createDynamicLegend({ min: temp_vmin_values[lev_val], max: temp_vmax_values[lev_val], steps: 8, title: 'Temperature (°C)', colorScale: temp_blues });
+    }
+    
   }
   
 }

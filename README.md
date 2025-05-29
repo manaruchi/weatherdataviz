@@ -8,4 +8,4 @@
 
 ### 29 May 25
 * Wind Speed Image Overlay Completed.
-* Added Surface Temperature Data. Layer Switching and Dynamic Legend Implementation Completed.
+* Added Temperature Data. Layer Switching and Dynamic Legend Implementation Completed.
