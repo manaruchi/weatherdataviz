@@ -60,9 +60,12 @@
     <button class="layer-toggle">Rainfall</button>
   </div>
 
+  
+
+
 </div>
 
-
+<div id="legend"></div>
 
 <div id="level-slider-tooltip"></div>
 
@@ -79,8 +82,14 @@
 <script src="assets/image-overlay.js"></script>
 <script>
 // Load the Wind Data at startup
+createDynamicLegend({
+  min: 0,
+  max: 50,
+  steps: 7,
+  title: 'Wind Speed (KT)'
+});
 loadWindData();
-updateOverlay()
+updateOverlay();
 </script>
 </body>
 </html>

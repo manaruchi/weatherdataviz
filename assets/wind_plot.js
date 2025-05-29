@@ -75,40 +75,7 @@ function loadWindData() {
 }
 
 
-  // Wind Legend
-  const legend = L.control({ position: "bottomright" });
 
-  legend.onAdd = function (map) {
-  const div = L.DomUtil.create("div", "info legend horizontal-legend");
-
-  // Wind speeds in m/s (adjust if you want knots)
-  const speeds = [0, 5, 10, 15, 20, 25, 30];
-  const colors = [
-    "#0077FF", // Blue
-    "#00FFFD", // Cyan
-    "#4EFF3C", // Green
-    "#FFFF00", // Yellow
-    "#FFB600", // Orange
-    "#FF3E00", // Red
-    "#990000", // Dark Red
-  ];
-
-  div.innerHTML += "<div class='legend-title'>Wind Speed (m/s)</div>";
-
-  // Create each color box with label
-  for (let i = 0; i < speeds.length; i++) {
-    const from = speeds[i];
-    const to = speeds[i + 1];
-    const label = to ? `${from} – ${to}` : `${from}+`;
-
-    div.innerHTML +=
-      `<div class="legend-box" style="background:${colors[i]}">` +
-      `${label}` +
-      `</div>`;
-  }
-
-  return div;
-};
 
   
   legend.addTo(map);

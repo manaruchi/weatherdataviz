@@ -160,3 +160,68 @@ document.getElementById("level-slider").addEventListener("input", function (e) {
 toggleInput.addEventListener("change", function () {
   loadWindData();
 });
+
+
+function createDynamicLegend(options) {
+  const {
+    containerId = 'legend',
+    title = 'Wind Speed (KT)',
+    colorScale = [
+      "#0077FF", // Blue
+      "#00FFFD", // Cyan
+      "#4EFF3C", // Green
+      "#FFFF00", // Yellow
+      "#FFB600", // Orange
+      "#FF3E00", // Red
+      "#990000", // Dark Red
+      "#800080"  // Purple
+    ],
+    min = 0,
+    max = 30,
+    steps = 6  // Number of labels
+  } = options;
+
+  const container = document.getElementById(containerId);
+  container.innerHTML = ''; // Clear previous
+
+  container.style = `
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+    padding: 10px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    font-family: sans-serif;
+    z-index: 999;
+    color: white;
+  `;
+
+  const titleDiv = document.createElement('div');
+  titleDiv.innerText = title;
+  titleDiv.style = 'font-size: 14px; margin-bottom: 4px; text-align: center;';
+  container.appendChild(titleDiv);
+
+  const barDiv = document.createElement('div');
+  barDiv.style = `
+    height: 20px;
+    width: 240px;
+    background: linear-gradient(to right, ${colorScale.join(',')});
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  `;
+  container.appendChild(barDiv);
+
+  const labelsDiv = document.createElement('div');
+  labelsDiv.style = 'display: flex; justify-content: space-between; font-size: 12px;';
+
+  for (let i = 0; i <= steps; i++) {
+    const value = min + i * (max - min) / steps;
+    const label = document.createElement('span');
+    label.innerText = value.toFixed(0);
+    labelsDiv.appendChild(label);
+  }
+
+  container.appendChild(labelsDiv);
+}
