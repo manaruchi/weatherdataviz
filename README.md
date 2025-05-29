@@ -6,5 +6,6 @@
 * Added new Wind Toggle in a Layer Container.
 * Added functionality to load winds as per values from Time slider, Level slider and Wind Toggle
 
-### 29 May 25, 1300H
+### 29 May 25
 * Wind Speed Image Overlay Completed.
+* Added Surface Temperature Data. Layer Switching and Dynamic Legend Implementation Completed.

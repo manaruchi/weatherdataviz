@@ -6,7 +6,7 @@ const imageBounds = [
   [43.468475341796875, 111.2647857666015]
 ];
 
-function updateOverlay() {
+function updateOverlay(dataLayerName) {
   // Get values of the sliders and toggles
   const levVal = document.getElementById("level-slider");
   const tVal = document.getElementById("time-slider");
@@ -14,7 +14,7 @@ function updateOverlay() {
   const timestampStr = tVal.value;
   const levelStr = levVal.value;
 
-  const imageUrl = `./data/wind_speed/wind_speed_${timestampStr}_${levelStr}.png`;
+  const imageUrl = `./data/${dataLayerName}/${dataLayerName}_${timestampStr}_${levelStr}.png`;
 
   // Show spinner
   document.getElementById('loading-spinner').style.display = 'block';
@@ -58,6 +58,37 @@ function updateOverlay() {
     // Hide spinner
     document.getElementById('loading-spinner').style.display = 'none';
   });
+
+  // Update the Legend
+  if(dataLayerName === "wind_speed"){
+    createDynamicLegend({
+      min: 0,
+      max: 50,
+      steps: 7,
+      title: 'Wind Speed (KT)'
+    });
+  } else if(dataLayerName === "temperature"){
+    createDynamicLegend({
+      min: -10,
+      max: 50,
+      steps: 8,
+      title: 'Temperature (°C)',
+      colorScale: [
+        "#053061",  // Dark Blue
+        "#2166ac",  // Blue
+        "#4393c3",  // Medium Blue
+        "#92c5de",  // Sky Blue
+        "#d1e5f0",  // Light Blue
+        "#ffffff",  // White (neutral/midpoint)
+        "#fddbc7",  // Light Pink
+        "#f4a582",  // Peach
+        "#d6604d",  // Light Red
+        "#b2182b",  // Red
+        "#67001f"   // Dark Red
+      ],
+    });
+  }
+  
 }
 
 

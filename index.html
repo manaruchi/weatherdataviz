@@ -53,16 +53,14 @@
   </div>
 
   <!-- Layer Toggle Group -->
-  <div class="layer-toggle-group">
-    <button class="layer-toggle active">Wind Speed</button>
-    <button class="layer-toggle">Pressure</button>
-    <button class="layer-toggle">Temperature</button>
-    <button class="layer-toggle">Rainfall</button>
-  </div>
+<div class="layer-toggle-group">
+  <button class="layer-toggle active" data-layer="wind_speed">Wind Speed</button>
+  <button class="layer-toggle" data-layer="temperature">Temperature</button>
+  <button class="layer-toggle" data-layer="rain">Rainfall</button>
+</div>
+
 
   
-
-
 </div>
 
 <div id="legend"></div>
@@ -82,14 +80,8 @@
 <script src="assets/image-overlay.js"></script>
 <script>
 // Load the Wind Data at startup
-createDynamicLegend({
-  min: 0,
-  max: 50,
-  steps: 7,
-  title: 'Wind Speed (KT)'
-});
 loadWindData();
-updateOverlay();
+updateOverlay("wind_speed");
 </script>
 </body>
 </html>

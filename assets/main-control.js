@@ -1,3 +1,6 @@
+// Global Variables
+let selectedLayerKey = "wind_speed"; // default
+
 // Initialize Leaflet map
 const map = L.map('map', {
     attributionControl: false,
@@ -148,12 +151,12 @@ const toggleInput = document.getElementById("wind-toggle");
 
 document.getElementById("time-slider").addEventListener("input", function (e) {
   loadWindData();
-  updateOverlay()
+  updateOverlay(selectedLayerKey)
 });
 
 document.getElementById("level-slider").addEventListener("input", function (e) {
   loadWindData();
-  updateOverlay()
+  updateOverlay(selectedLayerKey)
 });
 
 // Wind Toggle at Layers Container
@@ -225,3 +228,26 @@ function createDynamicLegend(options) {
 
   container.appendChild(labelsDiv);
 }
+
+
+// Toggle Between Layers
+document.querySelectorAll(".layer-toggle").forEach(button => {
+  button.addEventListener("click", () => {
+    // Remove 'active' from all buttons
+    document.querySelectorAll(".layer-toggle").forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+    // Add 'active' to clicked button
+    button.classList.add("active");
+
+    
+    // Update the Global Variable
+    selectedLayerKey = button.getAttribute("data-layer");
+
+    // Call your layer switching function here
+    updateOverlay(selectedLayerKey);
+  });
+});
+
+
