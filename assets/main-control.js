@@ -14,16 +14,7 @@ const map = L.map('map', {
 
 
 
-// Image bounds from your WRF-generated image
-const imageBounds = [
-  [-3.236724853515625, 44.73521041870117],
-  [43.468475341796875, 111.2647857666015]
-];
 
-// Add image overlay
-const windSpeedOverlay = L.imageOverlay('./data/wind_speed/test.png', imageBounds, {
-  opacity: 0.7,
-}).addTo(map);
 
 
   // Basemap - Using a Darker Version of CartoDB
@@ -157,10 +148,12 @@ const toggleInput = document.getElementById("wind-toggle");
 
 document.getElementById("time-slider").addEventListener("input", function (e) {
   loadWindData();
+  updateOverlay()
 });
 
 document.getElementById("level-slider").addEventListener("input", function (e) {
   loadWindData();
+  updateOverlay()
 });
 
 // Wind Toggle at Layers Container
