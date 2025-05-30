@@ -56,6 +56,15 @@ const imageBounds = [
 ];
 
 function updateOverlay(dataLayerName) {
+  // Hide the Vertical Height Slider As Required
+  if(dataLayerName === "wind_speed"){
+    vertSliderControl(1);
+  } else if(dataLayerName === "temperature"){
+    vertSliderControl(1);
+  } else if(dataLayerName === "rainfall"){
+    vertSliderControl(0);
+  }
+
   // Get values of the sliders and toggles
   const levVal = document.getElementById("level-slider");
   const tVal = document.getElementById("time-slider");
@@ -107,6 +116,8 @@ function updateOverlay(dataLayerName) {
     // Hide spinner
     document.getElementById('loading-spinner').style.display = 'none';
   });
+
+  
 
   // Update the Legend
   if(dataLayerName === "wind_speed"){

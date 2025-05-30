@@ -14,3 +14,4 @@
 * Added Time Slider Controls (-3Hr, -1Hr, +1Hr, +3Hr)
 * Added Animation Toggle Functionality
 * Added Rainfall Data
+* Added Station Points with Tooltip

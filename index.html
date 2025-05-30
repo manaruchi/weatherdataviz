@@ -62,6 +62,15 @@
     <span class="switch-label">Winds</span>
   </div>
 
+  <!-- Station Toggle Container -->
+  <div class="station-switch-container">
+    <label class="switch">
+      <input type="checkbox" id="station-toggle" onclick="toggleCircles()" checked />
+      <span class="slider"></span>
+    </label>
+    <span class="switch-label">Station Data</span>
+  </div>
+
   <!-- Layer Toggle Group -->
 <div class="layer-toggle-group">
   <button class="layer-toggle active" data-layer="wind_speed">Wind Speed</button>
@@ -88,10 +97,12 @@
 <script src="assets/main-control.js"></script>
 <script src="assets/wind_plot.js"></script>
 <script src="assets/image-overlay.js"></script>
+<script src="assets/station-plot.js"></script>
 <script>
 // Load the Wind Data at startup
 loadWindData();
 updateOverlay("wind_speed");
+vertSliderControl(1)
 </script>
 </body>
 </html>

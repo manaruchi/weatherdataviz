@@ -142,6 +142,20 @@ levelSlider.addEventListener("input", (e) => {
   // TODO: Load wind data for this level index
 });
 
+// Function to Enable or Disable Vertical Height Slider
+function vertSliderControl(v){
+  const slider = document.getElementById("level-slider");
+  const sliderLabel = document.getElementById("level-label");
+  if(v === 0) {
+    // Set val to 0 and disable
+    slider.value = 0;
+    slider.disabled = true;
+    sliderLabel.innerText = "Surface"
+  } else {
+    slider.disabled = false;
+  }
+}
+
 
 // ===============================================================================================
 // Code to get winds at given values
