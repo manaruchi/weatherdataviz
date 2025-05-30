@@ -29,6 +29,25 @@ const temp_blues = [
         "#f7fbff"  // Very light blue (almost white)
       ]
 
+const rain_colors = [
+  "#464444",//  Dark
+  "#f7fbff", //  Very light blue (almost white)
+  "#deebf7", //  Pale blue
+  "#c6dbef", //  Soft blue
+  "#9ecae1", //  Sky blue
+  "#6baed6", //  Medium light blue
+  "#4292c6", //  Medium blue
+  "#2171b5", //  Deep sky blue
+  "#08519c", //  Strong blue
+  "#08306b", //  Dark navy blue
+  "#041f4a", //  Very dark blue
+  "#021025",  //  Near-black blue
+  "#fddbc7",  // Light Pink
+  "#f4a582", //  Peach
+  "#d6604d", //  Light Red
+  "#b2182b", //  Red
+  "#67001f"  //  Dark Red
+]
 
 // Image bounds from your WRF-generated image
 const imageBounds = [
@@ -107,6 +126,8 @@ function updateOverlay(dataLayerName) {
       createDynamicLegend({ min: temp_vmin_values[lev_val], max: temp_vmax_values[lev_val], steps: 8, title: 'Temperature (°C)', colorScale: temp_blues });
     }
     
+  } else if(dataLayerName === "rainfall"){
+    createDynamicLegend({ min: 0, max: 30, steps: 8, title: 'Rainfall (mm)', colorScale: rain_colors });
   }
   
 }

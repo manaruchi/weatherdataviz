@@ -2,7 +2,7 @@
 
 ## Progress
 
-### 28 May 25, 1330H
+### 28 May 25
 * Added new Wind Toggle in a Layer Container.
 * Added functionality to load winds as per values from Time slider, Level slider and Wind Toggle
 
@@ -13,3 +13,4 @@
 ### 30 May 25
 * Added Time Slider Controls (-3Hr, -1Hr, +1Hr, +3Hr)
 * Added Animation Toggle Functionality
+* Added Rainfall Data
