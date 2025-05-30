@@ -1,5 +1,7 @@
 // Global Variables
 let selectedLayerKey = "wind_speed"; // default
+let playing = false;
+let playInterval;
 
 // Initialize Leaflet map
 const map = L.map('map', {
@@ -163,6 +165,59 @@ document.getElementById("level-slider").addEventListener("input", function (e) {
 toggleInput.addEventListener("change", function () {
   loadWindData();
 });
+
+// Time Range Control Buttons
+document.getElementById("next-btn").addEventListener("click", function (e) {
+  const curValueOfTimeSlider = document.getElementById("time-slider");
+  curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) + 1, curValueOfTimeSlider.max);
+  loadWindData();
+  updateOverlay(selectedLayerKey);
+});
+
+document.getElementById("prev-btn").addEventListener("click", function (e) {
+  const curValueOfTimeSlider = document.getElementById("time-slider");
+  curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) - 1, curValueOfTimeSlider.max);
+  loadWindData();
+  updateOverlay(selectedLayerKey);
+});
+
+document.getElementById("first-btn").addEventListener("click", function (e) {
+  const curValueOfTimeSlider = document.getElementById("time-slider");
+  curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) - 3, curValueOfTimeSlider.max);
+  loadWindData();
+  updateOverlay(selectedLayerKey);
+});
+
+document.getElementById("last-btn").addEventListener("click", function (e) {
+  const curValueOfTimeSlider = document.getElementById("time-slider");
+  curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) + 3, curValueOfTimeSlider.max);
+  loadWindData();
+  updateOverlay(selectedLayerKey);
+});
+
+document.getElementById("animate").addEventListener("click", togglePlay);
+
+// Animate Button
+function togglePlay() {
+  const btn = document.getElementById("animate");
+  if (!playing) {
+    playInterval = setInterval(showNextFrame, 2000);
+    btn.textContent = "⏸";
+    btn.title = "Pause Animation";
+  } else {
+    clearInterval(playInterval);
+    btn.textContent = "▶";
+    btn.title = "Play Animation";
+  }
+  playing = !playing;
+}
+
+function showNextFrame(){
+  const curValueOfTimeSlider = document.getElementById("time-slider");
+  curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) + 1, curValueOfTimeSlider.max);
+  loadWindData();
+  updateOverlay(selectedLayerKey);
+}
 
 
 function createDynamicLegend(options) {

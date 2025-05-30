@@ -9,3 +9,7 @@
 ### 29 May 25
 * Wind Speed Image Overlay Completed.
 * Added Temperature Data. Layer Switching and Dynamic Legend Implementation Completed.
+
+### 30 May 25
+* Added Time Slider Controls (-3Hr, -1Hr, +1Hr, +3Hr)
+* Added Animation Toggle Functionality

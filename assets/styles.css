@@ -64,7 +64,7 @@ body {
     position: absolute;
     bottom: 10px;
     left: 10px;
-
+    height: 100px;
     z-index: 1000;
     background: rgba(0,0,0,0.4);
     padding: 10px;
@@ -275,6 +275,7 @@ input:checked + .slider:before {
   text-align: left;
   min-width: 120px;
 }
+
 .layer-toggle:hover {
   background: #d0d0d0;
   color: black;
@@ -283,3 +284,34 @@ input:checked + .slider:before {
   background: #00b09b;
   color: white;
 }
+
+#nav-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 1000;
+}
+
+.nav-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #00b09b;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-circle:hover {
+  background: #01665a;
+  transform: scale(1.1);
+}
+
+

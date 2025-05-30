@@ -1,6 +1,24 @@
 
 let velocityLayer = null;
 
+function formatWRFTime(input) {
+  const utcDate = new Date(input.replace(" ", "T") + "Z");
+
+  // Extract UTC components
+  const day = String(utcDate.getUTCDate()).padStart(2, '0');
+  const month = utcDate.toLocaleString('en-US', { month: 'short', timeZone: 'UTC' });
+  const year = String(utcDate.getUTCFullYear()).slice(-2);
+
+  const hours = String(utcDate.getUTCHours()).padStart(2, '0');
+  const minutes = String(utcDate.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(utcDate.getUTCSeconds()).padStart(2, '0');
+
+  // Calculate IST suffix
+  const istHour = (utcDate.getUTCHours() + 5) % 24;
+  const istSuffix = String(istHour).padStart(2, '0') + "30Hr";
+
+  return `${day} ${month} ${year} ${hours}:${minutes}:${seconds} (${istSuffix})`;
+}
 
 
 
@@ -15,6 +33,34 @@ function loadWindData() {
 
   const timestampStr = tVal.value;
   const levelStr = levVal.value;
+
+
+  // Update the time-label even though the toggle input is not checked.
+  const filePath = `./data/wind_data/wind_${timestampStr}_${levelStr}.json`; // modify as needed
+
+  // Show a loading spinner
+  document.getElementById("loading-spinner").style.display = "block";
+
+  fetch(filePath)
+    .then((response) => {
+      if (!response.ok) throw new Error("Failed to load wind data");
+      return response.json();
+    })
+    .then((windData) => {
+      
+      // Update the Time Label over the Time Slider
+      const timeLabelOverSlider = document.getElementById("time-label");
+      timeLabelOverSlider.innerText = formatWRFTime(windData[0].header.refTime);
+
+    })
+    .catch((err) => {
+      console.error("Error loading wind data:", err);
+    })
+     .finally(() => {
+      // Hide spinner when done
+      document.getElementById("loading-spinner").style.display = "none";
+    });
+
 
   if (toggleInput.checked){
     const filePath = `./data/wind_data/wind_${timestampStr}_${levelStr}.json`; // modify as needed
@@ -31,7 +77,7 @@ function loadWindData() {
         
         // Update the Time Label over the Time Slider
         const timeLabelOverSlider = document.getElementById("time-label");
-        timeLabelOverSlider.innerText = windData[0].header.refTime;
+        timeLabelOverSlider.innerText = formatWRFTime(windData[0].header.refTime);
         // Remove existing layer
         if (velocityLayer) {
           map.removeLayer(velocityLayer);
