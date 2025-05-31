@@ -15,3 +15,7 @@
 * Added Animation Toggle Functionality
 * Added Rainfall Data
 * Added Station Points with Tooltip
+
+### 31 May 25
+* Added functionality to show Weather Information of the stations which also updates every minute.
+*

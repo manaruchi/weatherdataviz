@@ -28,6 +28,7 @@ body {
   border: none;
   padding: 4px 8px;
   border-radius: 4px;
+  z-index: 1800;
 }
 
 .leaflet-tooltip.custom-tooltip::before {
@@ -337,4 +338,100 @@ input:checked + .slider:before {
   transform: scale(1.1);
 }
 
+#station-information{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: rgba(0,0,0,0.4);
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  width: 350px;
+  display: none;
+}
 
+#station-name{
+  font-size: 32px;
+}
+
+#station-advisory{
+  margin-top: 10px;
+  background-color: red;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.loader2 {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .loader2::after,
+  .loader2::before {
+    content: '';  
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #FFF;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    animation: animloader2 2s ease-in-out infinite;
+  }
+  .loader2::after {
+    animation-delay: 1s;
+  }
+
+@keyframes animloader2 {
+    0%, 100% {
+      transform: scale(0);
+      opacity: 1;
+}
+    50% {
+      transform: scale(1);
+      opacity: 0;
+}
+  }
+  
+.station-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 10px;
+  color: white;
+}
+
+.station-table td {
+  border: 1px solid #444;
+  padding: 8px;
+}
+
+.station-table .label-cell {
+  background-color: #333;
+  font-weight: bold;
+  width: 100px;
+}
+
+#station-obs-time{
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+#station-information-close-button{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#station-information-close-button:hover{
+  color: grey;
+}

@@ -86,6 +86,45 @@
 
 <div id="level-slider-tooltip"></div>
 
+<div id="station-information">
+  <span id="station-information-close-button" onclick="hideStationInformationPanel()">×</span>
+  <span id="station-name"></span>
+  <div id="station-obs-time"></div>
+  <div id="station-advisory"></div>
+  <span class="loader2" id="station-loader"></span>
+  <table class="station-table" id="station-data-table">
+    <tr>
+      <td class="label-cell">Winds</td>
+      <td id="station-data-winds">10 kt NE</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Visibility</td>
+      <td id="station-data-visibility">8 km</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Weather</td>
+      <td id="station-data-weather">Light Rain</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Clouds</td>
+      <td id="station-data-clouds">BKN 3000 ft</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Dry Bulb</td>
+      <td id="station-data-temperature">22°C</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Pressure</td>
+      <td id="station-data-pressure">1012 hPa</td>
+    </tr>
+    <tr>
+      <td class="label-cell">Trend</td>
+      <td id="station-data-trend">Falling</td>
+    </tr>
+  </table>
+
+</div>
+
 <!-- Loader Animation -->
 <span class="loader" id="loading-spinner"></span>
 
