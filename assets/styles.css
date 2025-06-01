@@ -474,3 +474,86 @@ input:checked + .slider:before {
 #point-data-close-button:hover{
   color: grey;
 }
+
+/* Styles for Meteogram */
+
+#meteogram-container{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: rgba(0,0,0,0.4);
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  width: calc(100% - 1000px);
+  height: 230px;
+  display: none;
+}
+
+
+.line { fill: none; stroke-width: 2px; }
+.dot { stroke: #fff; stroke-width: 1.5px; cursor: pointer; }
+.bar { cursor: pointer; opacity: 0.8; }
+.tooltip {
+  position: absolute;
+  background: white;
+  border: 1px solid #aaa;
+  padding: 8px;
+  font-size: 12px;
+  pointer-events: none;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+  z-index: 1500;
+}
+.axis-label {
+  font-size: 14px;
+  fill: #ffffff;
+  font-weight: 600;
+}
+#loading-spinner2{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#meteogram-close-button{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#meteogram-close-button:hover{
+  color: gray;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.tab-button {
+  /*flex: 1;*/
+  padding: 10px;
+  border: none;
+  background: rgba(0,0,0,0.4);
+  cursor: pointer;
+  margin: 0; /* Remove spacing between buttons */
+  border-right: none; /* Avoid double borders between buttons */
+  
+  
+}
+
+.tab-button:hover{
+  background: #1c589a;
+}
+
+.tab-button.active {
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+}

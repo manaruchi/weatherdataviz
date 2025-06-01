@@ -7,7 +7,7 @@
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
+  
   <style>
     html, body, #map {
       height: 100%;
@@ -72,11 +72,11 @@
   </div>
 
   <!-- Layer Toggle Group -->
-<div class="layer-toggle-group">
-  <button class="layer-toggle active" data-layer="wind_speed">Wind Speed</button>
-  <button class="layer-toggle" data-layer="temperature">Temperature</button>
-  <button class="layer-toggle" data-layer="rainfall">Rainfall</button>
-</div>
+  <div class="layer-toggle-group">
+    <button class="layer-toggle active" data-layer="wind_speed">Wind Speed</button>
+    <button class="layer-toggle" data-layer="temperature">Temperature</button>
+    <button class="layer-toggle" data-layer="rainfall">Rainfall</button>
+  </div>
 
 
   
@@ -126,16 +126,26 @@
 </div>
 
 <!-- Point Data -->
-<div id="point-data-container">
-  
+<div id="point-data-container"></div>
+
+<!-- Meteogram Container-->
+<div id="meteogram-container">
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab(1)" id="tab-button-1">Temperature & Rainfall</button>
+    <button class="tab-button" onclick="showTab(2)" id="tab-button-2">Winds</button>
+    <button class="tab-button" onclick="showTab(3)" id="tab-button-3">Clouds</button>
+  </div>
+  <div id="chart"></div>
+  <span class="loader" id="loading-spinner2"></span>
+  <span id="meteogram-close-button" onclick="hideMeteogramPanel()">×</span>
 </div>
 
 <!-- Loader Animation -->
 <span class="loader" id="loading-spinner"></span>
 
-<!-- Leaflet JS -->
+<!-- Leaflet and D3 JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <!-- Leaflet Velocity Plugin -->
 <script src="https://unpkg.com/leaflet-velocity/dist/leaflet-velocity.min.js"></script>
 <script src="assets/main-control.js"></script>
@@ -143,6 +153,7 @@
 <script src="assets/image-overlay.js"></script>
 <script src="assets/station-plot.js"></script>
 <script src="assets/point-data-processing.js"></script>
+<script src="assets/meteogram.js"></script>
 <script>
 // Load the Wind Data at startup
 loadWindData();

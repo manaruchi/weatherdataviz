@@ -22,3 +22,4 @@
 
 ### 01 Jun 25
 * Point Weather Data Implementation Completed.
+* Added a Simple Meteogram.

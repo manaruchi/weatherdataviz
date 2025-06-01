@@ -88,6 +88,17 @@ map.on('click', function(e) {
     
     currentMarker = L.marker([clicked_lat, clicked_lon]).addTo(map);
     getPointData();
+
+    // If the meteogram is already visible, then update the map.
+    if(document.getElementById('meteogram-container').style.display !== 'none'){
+        plotMeteogram();
+    }
+});
+
+// Handle the doubleClick Event on Map
+map.on('dblclick', function(e) {
+    document.getElementById('meteogram-container').style.display = 'block';
+    plotMeteogram();
 });
 
 

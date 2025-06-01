@@ -150,7 +150,8 @@ function vertSliderControl(v){
     // Set val to 0 and disable
     slider.value = 0;
     slider.disabled = true;
-    sliderLabel.innerText = "Surface"
+    sliderLabel.innerText = "Surface";
+    loadWindData();
   } else {
     slider.disabled = false;
   }
@@ -189,6 +190,7 @@ document.getElementById("next-btn").addEventListener("click", function (e) {
   curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) + 1, curValueOfTimeSlider.max);
   loadWindData();
   updateOverlay(selectedLayerKey);
+  getPointData();
 });
 
 document.getElementById("prev-btn").addEventListener("click", function (e) {
@@ -196,6 +198,7 @@ document.getElementById("prev-btn").addEventListener("click", function (e) {
   curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) - 1, curValueOfTimeSlider.max);
   loadWindData();
   updateOverlay(selectedLayerKey);
+  getPointData();
 });
 
 document.getElementById("first-btn").addEventListener("click", function (e) {
@@ -203,6 +206,7 @@ document.getElementById("first-btn").addEventListener("click", function (e) {
   curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) - 3, curValueOfTimeSlider.max);
   loadWindData();
   updateOverlay(selectedLayerKey);
+  getPointData();
 });
 
 document.getElementById("last-btn").addEventListener("click", function (e) {
@@ -210,6 +214,7 @@ document.getElementById("last-btn").addEventListener("click", function (e) {
   curValueOfTimeSlider.value = Math.min(parseInt(curValueOfTimeSlider.value) + 3, curValueOfTimeSlider.max);
   loadWindData();
   updateOverlay(selectedLayerKey);
+  getPointData();
 });
 
 document.getElementById("animate").addEventListener("click", togglePlay);
