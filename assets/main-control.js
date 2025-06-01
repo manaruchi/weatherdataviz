@@ -80,7 +80,7 @@ for (let i = 0; i < 72; i++) {
     timeLabels.push(timeStr);
 }
 
-console.log(timeLabels)
+// console.log(timeLabels)
 
 // Show time on hover or drag
 slider.addEventListener("mousemove", (e) => {
@@ -167,17 +167,20 @@ const toggleInput = document.getElementById("wind-toggle");
 
 document.getElementById("time-slider").addEventListener("input", function (e) {
   loadWindData();
-  updateOverlay(selectedLayerKey)
+  updateOverlay(selectedLayerKey);
+  getPointData();
 });
 
 document.getElementById("level-slider").addEventListener("input", function (e) {
   loadWindData();
-  updateOverlay(selectedLayerKey)
+  updateOverlay(selectedLayerKey);
+  getPointData();
 });
 
 // Wind Toggle at Layers Container
 toggleInput.addEventListener("change", function () {
   loadWindData();
+  getPointData();
 });
 
 // Time Range Control Buttons
@@ -316,6 +319,7 @@ document.querySelectorAll(".layer-toggle").forEach(button => {
 
     // Call your layer switching function here
     updateOverlay(selectedLayerKey);
+    getPointData();
   });
 });
 

@@ -95,34 +95,39 @@
   <table class="station-table" id="station-data-table">
     <tr>
       <td class="label-cell">Winds</td>
-      <td id="station-data-winds">10 kt NE</td>
+      <td id="station-data-winds">---</td>
     </tr>
     <tr>
       <td class="label-cell">Visibility</td>
-      <td id="station-data-visibility">8 km</td>
+      <td id="station-data-visibility">---</td>
     </tr>
     <tr>
       <td class="label-cell">Weather</td>
-      <td id="station-data-weather">Light Rain</td>
+      <td id="station-data-weather">---</td>
     </tr>
     <tr>
       <td class="label-cell">Clouds</td>
-      <td id="station-data-clouds">BKN 3000 ft</td>
+      <td id="station-data-clouds">---</td>
     </tr>
     <tr>
       <td class="label-cell">Dry Bulb</td>
-      <td id="station-data-temperature">22°C</td>
+      <td id="station-data-temperature">---</td>
     </tr>
     <tr>
       <td class="label-cell">Pressure</td>
-      <td id="station-data-pressure">1012 hPa</td>
+      <td id="station-data-pressure">---</td>
     </tr>
     <tr>
       <td class="label-cell">Trend</td>
-      <td id="station-data-trend">Falling</td>
+      <td id="station-data-trend">---</td>
     </tr>
   </table>
 
+</div>
+
+<!-- Point Data -->
+<div id="point-data-container">
+  
 </div>
 
 <!-- Loader Animation -->
@@ -137,6 +142,7 @@
 <script src="assets/wind_plot.js"></script>
 <script src="assets/image-overlay.js"></script>
 <script src="assets/station-plot.js"></script>
+<script src="assets/point-data-processing.js"></script>
 <script>
 // Load the Wind Data at startup
 loadWindData();

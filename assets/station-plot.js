@@ -57,7 +57,7 @@ function loadStationData() {
         map.addLayer(circleLayerGroup);
       }
     });
-    console.log("Station Data Updated!!!")
+    // console.log("Station Data Updated!!!")
 }
 
 // First load
@@ -74,7 +74,7 @@ function toggleCircles() {
 }
 
 function getStationDetails(){
-  console.log(`station details function called. global: ${showStationInformationPanel}`);
+  // console.log(`station details function called. global: ${showStationInformationPanel}`);
   // Show the Panel
   if(showStationInformationPanel === 0){
     document.getElementById("station-information").style.display = "none";

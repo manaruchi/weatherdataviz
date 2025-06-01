@@ -124,7 +124,7 @@ function loadWindData() {
 
 
   
-  legend.addTo(map);
+ // legend.addTo(map);
   
 
 

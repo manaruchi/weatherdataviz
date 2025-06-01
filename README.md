@@ -19,3 +19,6 @@
 ### 31 May 25
 * Added functionality to show Weather Information of the stations which also updates every minute.
 * Generated Point Data Files.
+
+### 01 Jun 25
+* Point Weather Data Implementation Completed.
