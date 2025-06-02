@@ -163,9 +163,31 @@ body {
   40% { box-shadow: 0 2.5em 0 0 }
 }
 
+#app-header{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1000;
+  background: rgba(0,0,0,0.4);
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  width: 300px;
+  height: 40px;
+  font-size: 32px;
+  text-align: center;
+  cursor: pointer;
+}
+
+a:hover{
+  color: rgb(214, 206, 206);
+}
+
+
+
 #layers-container{
   position: absolute;
-  top: 10px;
+  top: 70px;
   left: 5px;
   z-index: 1000;
   background: rgba(0,0,0,0.4);
@@ -173,7 +195,7 @@ body {
   border-radius: 8px;
   color: white;
   width: 200px;
-  height: 300px;
+  height: 200px;
   display: flex;
   flex-direction: column;
 }
@@ -487,7 +509,7 @@ input:checked + .slider:before {
   padding: 10px;
   border-radius: 8px;
   color: white;
-  width: calc(100% - 1000px);
+  width: 920px;
   height: 230px;
   display: none;
 }
@@ -520,8 +542,8 @@ input:checked + .slider:before {
 
 #meteogram-close-button{
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 15px;
   color: white;
   cursor: pointer;
   font-size: 20px;
