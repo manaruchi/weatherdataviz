@@ -23,3 +23,7 @@
 ### 01 Jun 25
 * Point Weather Data Implementation Completed.
 * Added a Simple Meteogram.
+
+### 03 Jun 25
+* Added Route Forecast Panel
+* Simple Route is Plotted Using User-Defined Path

@@ -195,7 +195,7 @@ a:hover{
   border-radius: 8px;
   color: white;
   width: 200px;
-  height: 200px;
+  height: 230px;
   display: flex;
   flex-direction: column;
 }
@@ -218,6 +218,15 @@ a:hover{
 .station-switch-container {
   position: absolute;
   top: 50px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+.route-switch-container {
+  position: absolute;
+  top: 90px;
   left: 10px;
   display: flex;
   align-items: center;
@@ -297,7 +306,7 @@ input:checked + .slider:before {
 /* Toggle Button Group - now vertical */
 .layer-toggle-group {
   position: absolute;
-  top: 90px;
+  top: 120px;
   left: 10px;
   display: flex;
   flex-direction: column;
@@ -578,4 +587,114 @@ input:checked + .slider:before {
   background: #007bff;
   color: white;
   border-radius: 5px;
+}
+
+#route-plotter{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: rgba(0,0,0,0.4);
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  width: 350px;
+  display: none;
+}
+
+#route-plotter-header{
+  font-size: 20px;
+}
+
+#new-route-points{
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+#route_lat, #route_lon{
+  width: 50px;
+}
+
+#route_add{
+  width: 30px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 3px;
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#route_add:hover{
+  background-color: #636262;
+}
+
+.route-plotter-input{
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 3px;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+#final-route{
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 3px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  max-width: 332px;
+  min-width: 332px;
+  min-height: 100px;
+  max-height: 400px;
+}
+
+#route_plot{
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 3px;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#route_plot:hover{
+  background-color: #636262;
+}
+
+#route_clear{
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 3px;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#route_clear:hover{
+  background-color: #636262;
+}
+
+.ant-path {
+  stroke: rgb(0, 78, 20);
+  stroke-width: 5;
+  stroke-dasharray: 10, 10;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
 }

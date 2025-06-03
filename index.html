@@ -78,6 +78,15 @@
     <span class="switch-label">Station Data</span>
   </div>
 
+  <!-- Route Toggle Container -->
+  <div class="route-switch-container">
+    <label class="switch">
+      <input type="checkbox" id="route-toggle" onclick="toggleRoutePanel()"/>
+      <span class="slider"></span>
+    </label>
+    <span class="switch-label">Route Forecast</span>
+  </div>
+
   <!-- Layer Toggle Group -->
   <div class="layer-toggle-group">
     <button class="layer-toggle active" data-layer="wind_speed">Wind Speed</button>
@@ -132,6 +141,23 @@
 
 </div>
 
+<!-- Route Plotter-->
+<div id="route-plotter">
+  <div id="route-plotter-header">Route Forecast</div>
+  <div id="new-route-points">
+    <input type="text" title="Point Name" placeholder="Point Name" class="route-plotter-input" id="route_name">
+    <input type="text" title="Latitude" placeholder="Lat" class="route-plotter-input" id="route_lat">
+    <input type="text" title="Longitude" placeholder="Lon" class="route-plotter-input" id="route_lon">
+    <input type="button" value="+" class="route-plotter-input-button" id="route_add">
+  </div>
+
+  <textarea id="final-route">Jamnagar(2247/6992)-Udaipur(2437/7330)-Jodhpur(2629/7242)-Aligarh(2786/7772)</textarea>
+  <input type="button" value="Plot Route" class="route-plotter-plot-button" id="route_plot">
+  <input type="button" value="Clear Route" class="route-plotter-plot-button" id="route_clear" onclick="removeRoutePlot()">
+  
+
+</div>
+
 <!-- Point Data -->
 <div id="point-data-container"></div>
 
@@ -155,12 +181,14 @@
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <!-- Leaflet Velocity Plugin -->
 <script src="https://unpkg.com/leaflet-velocity/dist/leaflet-velocity.min.js"></script>
+<script src="assets/global.js"></script>
 <script src="assets/main-control.js"></script>
 <script src="assets/wind_plot.js"></script>
 <script src="assets/image-overlay.js"></script>
 <script src="assets/station-plot.js"></script>
 <script src="assets/point-data-processing.js"></script>
 <script src="assets/meteogram.js"></script>
+<script src="assets/route-controls.js"></script>
 <script>
 // Load the Wind Data at startup
 loadWindData();

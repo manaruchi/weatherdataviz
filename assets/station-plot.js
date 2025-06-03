@@ -79,7 +79,12 @@ function getStationDetails(){
   if(showStationInformationPanel === 0){
     document.getElementById("station-information").style.display = "none";
   } else {
-    document.getElementById("station-information").style.display = "block";
+    if(routeForecastPanelActiveOrNot === 1){
+      document.getElementById("station-information").style.display = "none";
+    } else {
+      document.getElementById("station-information").style.display = "block";
+    }
+    
   }
   
 

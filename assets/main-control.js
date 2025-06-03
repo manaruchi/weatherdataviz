@@ -2,6 +2,8 @@
 let selectedLayerKey = "wind_speed"; // default
 let playing = false;
 let playInterval;
+let routeForecastPanelActiveOrNot = 0;
+
 
 // Initialize Leaflet map
 const map = L.map('map', {
@@ -64,7 +66,8 @@ const container = document.getElementById("time-slider-container");
 
 // Update this with your actual time labels per step
 
-const startDate = new Date("2025-02-19T00:00:00Z");
+
+// const startDate = new Date("2025-02-19T00:00:00Z");
 
 var timeLabels = [];
 
@@ -93,6 +96,7 @@ slider.addEventListener("mousemove", (e) => {
   tooltip.style.left = `${e.clientX}px`;
   tooltip.style.top = `${rect.top - 30}px`;
   tooltip.style.display = 'block';
+  tooltip.style.zIndex = 1200;
 });
 
 slider.addEventListener("mouseleave", () => {
@@ -123,6 +127,7 @@ levelSlider.addEventListener("mousemove", (e) => {
   levelTooltip.style.left = `${e.clientX}px`;
   levelTooltip.style.top = `${rect.top - 30}px`;
   levelTooltip.style.display = "block";
+  levelTooltip.style.zIndex = 1200;
 });
 
 levelSlider.addEventListener("mouseleave", () => {

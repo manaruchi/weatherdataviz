@@ -93,6 +93,12 @@ map.on('click', function(e) {
     if(document.getElementById('meteogram-container').style.display !== 'none'){
         plotMeteogram();
     }
+
+    // If add Route point is enabled, change the values of the lat and long boxes as well.
+    if(addRouteEnabled > 0){
+        document.getElementById("route_lat").value = clicked_lat.toFixed(2)
+        document.getElementById("route_lon").value = clicked_lon.toFixed(2)
+    }
 });
 
 // Handle the doubleClick Event on Map
