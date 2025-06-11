@@ -680,6 +680,8 @@ input:checked + .slider:before {
   padding-left: 10px;
   border-radius: 5px;
   width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 #route_clear:hover{
@@ -697,4 +699,36 @@ input:checked + .slider:before {
   to {
     stroke-dashoffset: -20;
   }
+}
+
+#startTimeInput{
+  margin-top: 3px;
+  background-color: #333;
+  border: none;
+  color: white;
+  padding: 10px;
+  width: 94%;
+  border-radius: 5px;
+
+}
+
+#route_eet, #route_req_levels{
+  margin-top: 5px;
+  width: 96%;
+}
+
+#route_forecast{
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 3px;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#route_forecast:hover{
+  background-color: #636262;
 }

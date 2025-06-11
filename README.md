@@ -27,3 +27,18 @@
 ### 03 Jun 25
 * Added Route Forecast Panel
 * Simple Route is Plotted Using User-Defined Path
+
+### 11 Jun 25
+
+#### Literature Review on Wind and Temperature Interpolation
+* Wind Speed and Temperature:
+
+Interpolation is often done using linear interpolation in the vertical (z) direction when the atmosphere is assumed to be hydrostatically stable and the layers are sufficiently thin.
+
+Studies like Stull (1988) in "An Introduction to Boundary Layer Meteorology" mention that linear interpolation works well for wind speed and temperature when vertical gradients are smooth.
+
+* Wind Direction:
+
+Wind direction is a circular variable (0° = 360°), so direct linear interpolation may cause errors across the 0/360 boundary.
+
+Recommended method: vector decomposition — convert direction + speed to u/v components, interpolate u and v linearly, then convert back to direction using atan2.

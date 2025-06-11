@@ -154,7 +154,18 @@
   <textarea id="final-route">Jamnagar(2247/6992)-Udaipur(2437/7330)-Jodhpur(2629/7242)-Aligarh(2786/7772)</textarea>
   <input type="button" value="Plot Route" class="route-plotter-plot-button" id="route_plot">
   <input type="button" value="Clear Route" class="route-plotter-plot-button" id="route_clear" onclick="removeRoutePlot()">
+
+  <label for="startTimeInput">Start Time (UTC)</label>  
+  <input type="datetime-local" id="startTimeInput" />
+  <!-- <button onclick="runCalculation()">Calculate Arrival Times</button> -->
+  <input type="text" title="EET" placeholder="EET (In Minutes)" class="route-plotter-input" id="route_eet">
+
+  <input type="text" title="Required Levels (Eg 050, 100, 150 etc.)" placeholder="Required Levels (Eg 050, 100, 150 etc.)" class="route-plotter-input" id="route_req_levels">
+
   
+
+  <input type="button" value="Get Wind and Temp Data" class="route-plotter-plot-button" id="route_forecast">
+
 
 </div>
 
@@ -194,6 +205,7 @@
 loadWindData();
 updateOverlay("wind_speed");
 vertSliderControl(1)
+
 </script>
 </body>
 </html>
