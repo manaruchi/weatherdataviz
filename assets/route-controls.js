@@ -163,6 +163,7 @@ function interpolateProfile(data, targetAltitudes) {
 
 document.getElementById("route_forecast").addEventListener("click", async function (e) {
     const timeInputfromHTML = new Date(document.getElementById("startTimeInput").value);
+    document.getElementById("loading-spinner").style.display = "block";
 
     if (routesList.length === 0) {
         alert("Incomplete Input. Please Add Route, Start Time and EET!");
@@ -225,6 +226,24 @@ document.getElementById("route_forecast").addEventListener("click", async functi
 
     // ✅ Now finalRouteForecast is ready
     console.log("Final Route Forecast:", finalRouteForecast);
+
+
+    const workbook = XLSX.utils.book_new();
+
+    for(var sheetC = 0; sheetC < initialRouteInformation.length; sheetC++){
+        const sheetData = []
+        finalRouteForecast[sheetC].forEach(d => {
+            sheetData.push({altitude: d.altitude, wind_direction: d.windDir, wind_speed: d.windSpeed, temperature: d.temperature})
+        })
+        
+        const worksheet = XLSX.utils.json_to_sheet(sheetData);
+        
+        XLSX.utils.book_append_sheet(workbook, worksheet, initialRouteInformation[sheetC].name);
+    }
+
+    XLSX.writeFile(workbook, "forecast_output.xlsx");
+    document.getElementById("loading-spinner").style.display = "none";
+
 });
 
 

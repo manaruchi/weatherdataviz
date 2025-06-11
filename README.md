@@ -42,3 +42,6 @@ Studies like Stull (1988) in "An Introduction to Boundary Layer Meteorology" men
 Wind direction is a circular variable (0° = 360°), so direct linear interpolation may cause errors across the 0/360 boundary.
 
 Recommended method: vector decomposition — convert direction + speed to u/v components, interpolate u and v linearly, then convert back to direction using atan2.
+
+* Added Logic to Interpolate Wind and Temperature
+* Now Route Forecast can be downloaded as VIOM compatible XLSX file.
